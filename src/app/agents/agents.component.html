@@ -9,12 +9,60 @@
 
 
 
-<main>
-  <div class="container" style="height:1500px;">
-      <div class="row pt-5">
-          <div class="col text-center">
-       Agents Work
-          </div>
-      </div>
-  </div>
-</main>
+
+ 
+
+
+<div class="container-fluid">
+  <h1 style="margin-left:40%;" class=" mt-4  ">Агенты</h1>
+<div class="row d-block col-12">
+  
+
+   <!--
+
+
+      Форма для поиска
+   -->
+ 
+        
+        
+     
+  
+     <div class="col-12">   
+      
+<table style=" margin-left:5%;width:90%; margin-right: 10%; " mdbTable class="table table-striped">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let el of elements" (click)="more.toggle()">
+         
+        <th scope="row" >{{el.id}}
+          
+            
+        </th>
+        <td>{{el.fio}}</td>  
+        <td> {{el.date}}
+            
+        </td>
+           
+          
+    
+        <td>{{el.routes}}</td>
+      
+      
+      
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+
+
+
+ 
+

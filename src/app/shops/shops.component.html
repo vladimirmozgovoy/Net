@@ -5,12 +5,57 @@
 
 
 
-<main>
-  <div class="container" style="height:1500px;">
-      <div class="row pt-5">
-          <div class="col text-center">
-       Shops
-          </div>
-      </div>
-  </div>
-</main>
+
+
+
+
+
+
+
+
+ 
+
+
+<div class="container-fluid">
+  <h1 style="margin-left:40%;" class=" mt-4  ">Магазины</h1>
+<div class="row d-block col-12">
+  
+
+   <!--
+
+
+      Форма для поиска
+   -->
+ 
+        
+        
+     
+  
+      
+      
+      <table style="width:88%; margin-left:5%;" mdbTable class="table table-striped">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let el of elements" (click)="more.toggle()">
+             
+           <td>{{el.id}}</td>
+           <td>{{el.erp_id}}</td>
+           <td>{{el.region}}</td>
+           <td>{{el.routes}}</td>
+           <td>{{el.type}}</td>
+           <td>{{el.com_net}}</td>
+           <td>{{el.name}}</td>
+           <td>{{el.address}}</td>
+           <td>{{el.report}}</td>
+          
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+</div>
+
