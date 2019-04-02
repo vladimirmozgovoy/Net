@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+
 
 
 <!-- Main -->
@@ -20,12 +20,16 @@
  
 
 
-<div class="container-fluid">
-  <h1 style="margin-left:40%;" class=" mt-4  ">Отчеты</h1>
-<div class="row d-block col-12">
-  
 
-   <!--
+ 
+  <nav  class="nav blue lighten-5 py-3 pl-5 w-100 col-12">
+    <a class="nav-link active" (click)="information()" >Информация</a>
+    <a class="nav-link active" (click)="photo()" >Фото</a>
+    <a class="nav-link active" (click)="dol()" >Доля полки</a>
+    <a class="nav-link active " (click)="price()" >Цены</a>
+</nav>
+
+<!--
 
 
       Форма для поиска
@@ -36,8 +40,9 @@
      
   
       
-      
-      <table style="width:88%; margin-left:5%;" mdbTable class="table table-striped">
+      <!--
+
+ <table style="width:88%; margin-left:5%;" mdbTable class="table table-striped">
         <thead>
           <tr>
             <th *ngFor="let head of headElements" scope="col">{{head}} </th>
@@ -58,8 +63,8 @@
           </tr>
         </tbody>
       </table>
+      -->
+     
 
-</div>
-</div>
 
 

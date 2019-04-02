@@ -1,0 +1,14 @@
+<app-nav></app-nav>
+<div class="container-fluid">
+  <h1 style="margin-left:40%;" class=" mt-4  ">Отчет №{{id}}</h1>
+<div class="row d-block col-12">
+
+<app-more-reports></app-more-reports>
+<h5>Результаты</h5>
+<h6>Название продукта :</h6>
+<ul  *ngFor="let el of elements" >
+<li>{{el.name}}</li>
+
+
+</ul>
+
