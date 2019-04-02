@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MoreReportsComponent } from './more-reports/more-reports.component';
@@ -35,7 +36,8 @@ import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
     BrowserAnimationsModule,
     HttpClientModule,
     
-    MDBBootstrapModule,
+    MDBBootstrapModule.forRoot(),
+   
     
     
   ],
