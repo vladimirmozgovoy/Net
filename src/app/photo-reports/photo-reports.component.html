@@ -8,9 +8,18 @@
 
 
 <div  style="width:30%;height:30%; ">
+
 <svg   viewBox="0 0 960 1280" style="background-image:
  url(&quot;http://net/api/img/7.jpg&quot;); 
  background-size: cover; background-repeat: no-repeat; background-position: center center; display: block;">
- <rect  mdbTooltip="Tooltip on top" placement="right" x="24" y="207"   width="70" height="221" stroke="#ccc" fill="#ccc" fill-opacity="0.01" stroke-width="4.107962213225371"
-   cursor="pointer" currentItem="false" ><title>Chisinao</title></rect></svg>
+ <rect *ngFor="let el of elements" mdbTooltip="Tooltip on top" placement="right" [attr.x]="el.bndbox.xmin" [attr.y]="el.bndbox.ymin"   [attr.width]="el.bndbox.xmax-el.bndbox.xmin" [attr.height]="el.bndbox.ymax-el.bndbox.ymin" stroke="#ccc" fill="#ccc" fill-opacity="0.01" stroke-width="4.107962213225371"
+   cursor="pointer" currentItem="false" ><title>{{el.name}}</title></rect></svg>
+
+
+
+
+
+
+
+
 </div>
