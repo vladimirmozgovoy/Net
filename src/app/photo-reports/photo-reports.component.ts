@@ -17,19 +17,19 @@ htmlToAdd:any;
 
   constructor(private routes: ActivatedRoute, private http:HttpClient
     ) {
-
-      this.url="http://net/api/getxml.php";
+      this.id = this.routes.snapshot.paramMap.get('id');
+      this.url="http://net.axas.ru/api/getxml.php?id="+this.id;
  
       this.http.get(this.url).subscribe((response)=>{
        this.response=response;
        this.elements=this.response.object;
-       console.log(this.elements[0].bndbox.xmin);
+    
       
     
      
      })
 
-    this.id = this.routes.snapshot.paramMap.get('id');
+    
     
 
    }

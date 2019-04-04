@@ -6,15 +6,16 @@ import { AgentsComponent } from './agents/agents.component';
 import { ShopsComponent } from './shops/shops.component';
 import { ReportsComponent } from './reports/reports.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { MoreReportsComponent } from './more-reports/more-reports.component';
 import { InfoReportsComponent } from './info-reports/info-reports.component';
 import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
+import { StellageComponent } from './stellage/stellage.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
     MoreReportsComponent,
     InfoReportsComponent,
     PhotoReportsComponent,
+    StellageComponent,
     
   ],
   imports: [
@@ -35,10 +37,8 @@ import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    
-    MDBBootstrapModule.forRoot(),
-   
-    
+    MDBBootstrapModule.forRoot(),   
+    ChartsModule 
     
   ],
   exports:[

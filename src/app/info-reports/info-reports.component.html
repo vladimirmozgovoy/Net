@@ -4,11 +4,22 @@
 <div class="row d-block col-12">
 
 <app-more-reports></app-more-reports>
-<h5>Результаты</h5>
-<h6>Название продукта :</h6>
-<ul  *ngFor="let el of elements" >
-<li>{{el.name}}</li>
+<h3>Результаты</h3>
 
+<table style="width:88%; margin-left:5%;" mdbTable class="table table-striped">
+  <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let el of elements" (click)="more.toggle()">
+       
+     <td><a class="active" href="/reports/info/{{el.id}}">{{el.id}}</a></td>
+     <td>{{el.col}}</td>
+     
+    </tr>
+  </tbody>
+</table>
 
-</ul>
 

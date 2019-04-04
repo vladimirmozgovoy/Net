@@ -25,11 +25,7 @@
 <div class="row d-block col-12">
   
 
-   <!--
-
-
-      Форма для поиска
-   -->
+   
  
         
         
@@ -46,7 +42,7 @@
         <tbody>
           <tr  *ngFor="let el of elements" (click)="more.toggle()">
              
-           <td>{{el.id}}</td>
+           <td><a class="active" href="/reports/info/{{el.id}}">{{el.id}}</a></td>
            <td>{{el.date}}</td>
            <td>{{el.name}}</td>
            <td>{{el.address}}</td>
@@ -54,7 +50,6 @@
            <td>{{el.routes}}</td>
            <td>{{el.fio}}</td>
            <td>{{el.col_photo}}</td>
-          
           </tr>
         </tbody>
       </table>

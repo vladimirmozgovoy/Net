@@ -11,20 +11,21 @@ id:any;
 url:any;
 response:any;
 elements:any;
+headElements = ['Название продукта','Количество'];
   constructor(private routes: ActivatedRoute, private http:HttpClient
     ) {
-
-      this.url="http://net/api/getxml.php";
+      this.id = this.routes.snapshot.paramMap.get('id');
+      this.url="http://net/api/getinfo.php?id="+this.id;
   
       this.http.get(this.url).subscribe((response)=>{
        this.response=response;
-       this.elements=this.response.object;
-       console.log(this.elements);
+       this.elements=this.response.beer;
+      console.log(this.elements);
     
      
      })
 
-    this.id = this.routes.snapshot.paramMap.get('id');
+    
     
 
    }
