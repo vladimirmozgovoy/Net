@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { MultiDataSet, Label } from 'ng2-charts';
-import { ChartType } from 'chart.js';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+
+
 @Component({
   selector: 'app-stellage',
   templateUrl: './stellage.component.html',
@@ -20,14 +19,53 @@ response:any;
 elements:any;
 t:string ;
 test:string[];
-public doughnutChartLabels: Label[]=["t"];
+public chartType: string = 'pie';
 
-public doughnutChartData: MultiDataSet = [
-  [350, 450, 100],
-  [50, 150, 120],
-  [250, 130, 70],
-];
-public doughnutChartType: ChartType = 'doughnut';
+  public chartDatasets: Array<any> = [
+    { data: [300, 50, 100, 40, 120], label: 'My First dataset' }
+  ];
+
+  public chartLabels: Array <any> = ["test"];
+
+  public chartColors: Array<any> = [
+    {
+      backgroundColor: ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+		  '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC', 
+		  '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+		  '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+		  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF','#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+      '#4DB3FF', '#1AB399', '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680', 
+		  '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+		  '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
+		  '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF','#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+      '#4DB3FF', '#1AB399',
+    
+    
+    
+    
+    
+    
+    ],
+      hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
+      borderWidth: 2,
+    }
+  ];
+
+  public chartOptions: any = {
+    responsive: true
+  };
+ 
 
   constructor(private routes: ActivatedRoute, private http:HttpClient
     ) {
@@ -40,12 +78,25 @@ public doughnutChartType: ChartType = 'doughnut';
         this.col=this.response.beer.col;
        
        this.lenght=this.idBeer.length
+      this.chartLabels=[this.response.beer[0].id] ;
+      this.chartDatasets=[{data:[this.response.beer[0].col] , label: 'Доля полки'}]
+    
+     console.log( this.chartDatasets[0].data[0]);
+      /* this.chartLabels[0]=this.response.beer[0].id;
+       this.chartLabels[1]=this.response.beer[1].id;*/
+      console.log(this.chartLabels);
        for (let i = 0; i < this.lenght; i++) {
-       //this.test.push(JSON.stringify(this.response.beer[i].id));
-        //console.log(this.test);
-        //this.doughnutChartLabels=[this.t];
+        this.chartLabels[i]=this.response.beer[i].id; 
+        this.chartDatasets[0].data[i]=this.response.beer[i].col;
+      
+      
+
+
+
+//this.chartDatasets[i]=[{data:this.response.beer[i].col,label:"Доля полки"}]
 
         }
+        
     
      
       })
@@ -58,13 +109,8 @@ public doughnutChartType: ChartType = 'doughnut';
     }
   
     // events
-   
-    public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-      console.log(event, active);
-    }
-  
-    public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-      console.log(event, active);
-    }
+    public chartClicked(e: any): void { }
+  public chartHovered(e: any): void { }
+    
 
 }
