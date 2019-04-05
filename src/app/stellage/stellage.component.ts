@@ -69,9 +69,9 @@ public chartType: string = 'pie';
 
   constructor(private routes: ActivatedRoute, private http:HttpClient
     ) {
-
-     this.url=("http://net/api/getinfo.php?id=1");
       this.id = this.routes.snapshot.paramMap.get('id');
+     this.url=("http://net/api/getinfo.php?id="+this.id);
+     
       this.http.get(this.url).subscribe((response)=>{
         this.response=response;
         this.idBeer=this.response.beer;
@@ -82,8 +82,8 @@ public chartType: string = 'pie';
       this.chartDatasets=[{data:[this.response.beer[0].col] , label: 'Доля полки'}]
     
      console.log( this.chartDatasets[0].data[0]);
-      /* this.chartLabels[0]=this.response.beer[0].id;
-       this.chartLabels[1]=this.response.beer[1].id;*/
+      
+     
       console.log(this.chartLabels);
        for (let i = 0; i < this.lenght; i++) {
         this.chartLabels[i]=this.response.beer[i].id; 
@@ -93,7 +93,7 @@ public chartType: string = 'pie';
 
 
 
-//this.chartDatasets[i]=[{data:this.response.beer[i].col,label:"Доля полки"}]
+
 
         }
         
