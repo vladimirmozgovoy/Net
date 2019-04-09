@@ -10,8 +10,9 @@ import { InfoReportsComponent } from './info-reports/info-reports.component';
 import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
 import { StellageComponent } from './stellage/stellage.component';
 import { UploadComponent } from './upload/upload.component';
+import { AuthComponent } from './auth/auth.component';
 const routes: Routes = [
-
+  {path:'auth', component:AuthComponent},
   {path:'', component:HomeComponent},
   {path:'agents', component:AgentsComponent},
   {path:'shops', component:ShopsComponent},

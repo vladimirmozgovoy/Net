@@ -16,9 +16,10 @@ import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
 import { StellageComponent } from './stellage/stellage.component';
 import { ChartsModule } from 'ng2-charts';
 import { UploadComponent } from './upload/upload.component';
-
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { CookieService } from 'ngx-cookie-service'
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     PhotoReportsComponent,
     StellageComponent,
     UploadComponent,
+    AuthComponent,
     
     
   ],
@@ -53,7 +55,7 @@ import { FormsModule } from '@angular/forms';
     UploadComponent,
     
   ],
-  providers: [],
+  providers: [CookieService],
 
   bootstrap: [AppComponent]
 })

@@ -1,24 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { RouterModule, Routes,Router } from '@angular/router';
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.scss']
 })
+
 export class ReportsComponent implements OnInit {
-img:any;
+  
+
+  
+  img:any;
   url:any;
   elements:any;
   response:any ;
+  token:any;
   headElements = ['ID', 'Дата','Магазин', 'Адрес магазина','Задача','Маршрут','Агент','Кол-во фотографий'];
-  constructor(private http: HttpClient) { 
-
-    this.url="http://net/api/getreports.php";
+  constructor(private http: HttpClient ,cookie: CookieService, private router:Router) { 
+    this.token=cookie.get("token");
+    
+    const params = {'token':this.token}
   
-    this.http.get(this.url).subscribe((response)=>{
+    this.url="http://net/api/getreports.php";
+
+    this.http.get(this.url,{ params: params }).subscribe((response)=>{
      this.response=response;
      this.elements=this.response.results;
-     
+     if(this.response.code==300){
+
+      this.router.navigate(['/auth']);
+  
+
+     }
+   
     
  
    

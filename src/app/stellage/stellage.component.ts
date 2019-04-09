@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-stellage',
@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./stellage.component.scss']
 })
 export class StellageComponent implements OnInit {
- addText:any;
+ token:any;
+  addText:any;
   lenght:any;
   col:any;
   idBeer:any;
@@ -67,16 +68,23 @@ public chartType: string = 'pie';
   };
  
 
-  constructor(private routes: ActivatedRoute, private http:HttpClient
-    ) {
+  constructor(private routes: ActivatedRoute, private http:HttpClient,
+    private cookie: CookieService ,private router:Router) {
       this.id = this.routes.snapshot.paramMap.get('id');
-     this.url=("http://net/api/getinfo.php?id="+this.id);
+      this.token=cookie.get("token");
+      const params = {'id':this.id,'token':this.token};
+      this.url="http://net/api/getinfo.php";
      
-      this.http.get(this.url).subscribe((response)=>{
+      this.http.get(this.url,{params:params}).subscribe((response)=>{
         this.response=response;
         this.idBeer=this.response.beer;
         this.col=this.response.beer.col;
-       
+        if(this.response.code==300){
+
+          this.router.navigate(['/auth']);
+      
+    
+         }
        this.lenght=this.idBeer.length
       this.chartLabels=[this.response.beer[0].id] ;
       this.chartDatasets=[{data:[this.response.beer[0].col] , label: 'Доля полки'}]
