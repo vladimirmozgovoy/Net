@@ -15,8 +15,10 @@ import { InfoReportsComponent } from './info-reports/info-reports.component';
 import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
 import { StellageComponent } from './stellage/stellage.component';
 import { ChartsModule } from 'ng2-charts';
+import { UploadComponent } from './upload/upload.component';
 
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,21 +33,28 @@ import { ChartsModule } from 'ng2-charts';
     InfoReportsComponent,
     PhotoReportsComponent,
     StellageComponent,
+    UploadComponent,
+    
     
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),   
-    ChartsModule 
+    ChartsModule ,
+  
     
   ],
   exports:[
-  
+    UploadComponent,
+    
   ],
   providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

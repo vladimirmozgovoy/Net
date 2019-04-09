@@ -16,7 +16,7 @@ export class AgentsComponent implements OnInit {
   
      this.http.get(this.url).subscribe((response)=>{
       this.response=response;
-      this.elements=this.response.agents;
+      this.elements=this.response.results;
    
     
     })

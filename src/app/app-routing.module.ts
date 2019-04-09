@@ -9,12 +9,14 @@ import { MoreReportsComponent } from './more-reports/more-reports.component';
 import { InfoReportsComponent } from './info-reports/info-reports.component';
 import { PhotoReportsComponent } from './photo-reports/photo-reports.component';
 import { StellageComponent } from './stellage/stellage.component';
+import { UploadComponent } from './upload/upload.component';
 const routes: Routes = [
 
   {path:'', component:HomeComponent},
   {path:'agents', component:AgentsComponent},
   {path:'shops', component:ShopsComponent},
   {path:'reports', component:ReportsComponent},
+  {path:'upload', component:UploadComponent},
   {path:'reports/info/:id', component:InfoReportsComponent},
   {path:'reports/photo/:id', component:PhotoReportsComponent},
   {path:'reports/stellage/:id', component:StellageComponent},

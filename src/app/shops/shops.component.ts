@@ -16,7 +16,7 @@ export class ShopsComponent implements OnInit {
   
     this.http.get(this.url).subscribe((response)=>{
      this.response=response;
-     this.elements=this.response.shops;
+     this.elements=this.response.results;
   
    
    })
