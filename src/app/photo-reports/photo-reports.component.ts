@@ -22,34 +22,40 @@ htmlToAdd:any;
 style:any;
   constructor(private routes: ActivatedRoute,private router:Router, private http:HttpClient, private cookie: CookieService
     ) {
-      this.id = this.routes.snapshot.paramMap.get('id');
-      this.url="http://net/api/getxml.php";
       this.token=cookie.get("token");
-    
-      const params = {'id':this.id,'token':this.token}
-      this.photoUrl="http://net/api/getphoto.php";
+      console.log(this.token);
+      this.id = this.routes.snapshot.paramMap.get('id');
+      this.url="http://net.axas.ru/api/getxml.php?id="+this.id+"&token="+this.token;
       
- 
-      this.http.get(this.url,{params:params}).subscribe((response)=>{
+    
+      
+      //this.photoUrl="http://net.axas.ru/api/getphoto.php";
+      this.photoUrl="http://net.axas.ru/api/getphoto.php?id="+this.id+"&token="+this.token;
+      console.log(this.token);
+      this.http.get(this.url).subscribe((response)=>{
        this.response=response;
        this.elements=this.response.object;
+   
   
        
      
      })
-     this.http.get(this.photoUrl,{params:params}).subscribe((resImg)=>{
+     this.http.get(this.photoUrl).subscribe((resImg)=>{
       this.resImg=resImg;
+      
+      console.log(this.resImg);
       if(this.resImg.code==300){
       console.log(this.token);
-
-       // this.router.navigate(['/auth']);
-    
-  
+        this.router.navigate(['/auth']);
+      
        }
-      this.img=this.resImg.results[0].photo;
+       else{
+        this.img=this.resImg.results[0].photo;
+       }
+     
      
       
-    
+      
     })
     
     

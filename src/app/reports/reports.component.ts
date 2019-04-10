@@ -24,12 +24,13 @@ export class ReportsComponent implements OnInit {
     
     const params = {'token':this.token}
   
-    this.url="http://net/api/getreports.php";
+    this.url="http://net.axas.ru/api/getreports.php";
 
     this.http.get(this.url,{ params: params }).subscribe((response)=>{
      this.response=response;
      this.elements=this.response.results;
      if(this.response.code==300){
+       console.log(this.token);
 
       this.router.navigate(['/auth']);
   

@@ -17,7 +17,7 @@ export class AgentsComponent implements OnInit {
     this.token=cookie.get("token");
     
     const params = {'token':this.token};
-    this.url="http://net/api/getagents.php";
+    this.url="http://net.axas.ru/api/getagents.php";
   
      this.http.get(this.url,{ params: params }).subscribe((response)=>{
       this.response=response;

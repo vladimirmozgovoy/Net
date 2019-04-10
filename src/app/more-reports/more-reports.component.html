@@ -6,7 +6,14 @@
 
 
 
-
+<nav class=" col-12  nav blue lighten-5 py-3 pl-5 ">
+    
+    <a style="margin-top:0.7%;" class="nav-link active" href="/reports/info/{{id}}" (click)="information()" >Информация</a>
+    <a style="margin-top:0.7%;" class="nav-link active" href="/reports/photo/{{id}}" (click)="photo()" >Фото</a>
+    <a style="margin-top:0.7%;" class="nav-link active" href="/reports/stellage/{{id}}" >Доля полки</a>
+    <a style="margin-left:20%; font-size: 1.8rem" class="nav-link "  >Отчет №{{id}}</a>
+  
+</nav>
 
 
 
@@ -20,14 +27,21 @@
  
 
 
-
- 
-  <nav  class="nav blue lighten-5 py-3 pl-5 w-100 col-12">
+<!--
+<div class="row">
+   
+  <nav class=" col-6  nav blue lighten-5 py-3 pl-5 ">
+    
     <a class="nav-link active" href="/reports/info/{{id}}" (click)="information()" >Информация</a>
     <a class="nav-link active" href="/reports/photo/{{id}}" (click)="photo()" >Фото</a>
     <a class="nav-link active" href="/reports/stellage/{{id}}" >Доля полки</a>
+   
   
 </nav>
+</div>
+
+-->
+ 
 
 <!--
 

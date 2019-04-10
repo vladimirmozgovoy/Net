@@ -8,13 +8,14 @@ import { RouterModule, Routes,Router } from '@angular/router';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-key:any;
+test:any;
+  key:any;
 url:any;
 response:any;
 code:any;
-constructor(private http: HttpClient,private cookieService: CookieService, private router:Router) { 
-
- 
+constructor(private http: HttpClient,private cookie: CookieService, private router:Router) { 
+  cookie.deleteAll();
+  
 
 
 }
@@ -23,13 +24,17 @@ constructor(private http: HttpClient,private cookieService: CookieService, priva
   }
 auth(){
   const params = {'key':this.key}
-this.url="http://net/api/auth.php";
+this.url="http://net.axas.ru/api/auth.php";
 
 this.http.get(this.url,{ params: params }).subscribe((response)=>{
  this.response=response;
  this.code=this.response.code;
  if(this.code==200){
-  this.cookieService.set( 'token', this.response.token );
+  
+  this.cookie.set( 'token', this.response.token );
+  this.test=this.cookie.get("token");
+  console.log(this.test);
+  
   this.router.navigate(['/reports']);
   
  }

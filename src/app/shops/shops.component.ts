@@ -16,7 +16,7 @@ export class ShopsComponent implements OnInit {
   constructor(private http: HttpClient ,private cookie: CookieService,private router:Router) { 
     this.token=cookie.get("token");
     const params = {'token':this.token};
-    this.url="http://net/api/getshops.php";
+    this.url="http://net.axas.ru/api/getshops.php";
   
       this.http.get(this.url,{ params: params }).subscribe((response)=>{
      this.response=response;

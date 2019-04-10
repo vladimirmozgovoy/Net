@@ -73,29 +73,36 @@ public chartType: string = 'pie';
       this.id = this.routes.snapshot.paramMap.get('id');
       this.token=cookie.get("token");
       const params = {'id':this.id,'token':this.token};
-      this.url="http://net/api/getinfo.php";
+      this.url="http://net.axas.ru/api/getinfo.php?id="+this.id+"&token="+this.token;
      
-      this.http.get(this.url,{params:params}).subscribe((response)=>{
+      this.http.get(this.url).subscribe((response)=>{
         this.response=response;
-        this.idBeer=this.response.beer;
-        this.col=this.response.beer.col;
         if(this.response.code==300){
 
           this.router.navigate(['/auth']);
       
     
          }
-       this.lenght=this.idBeer.length
-      this.chartLabels=[this.response.beer[0].id] ;
-      this.chartDatasets=[{data:[this.response.beer[0].col] , label: 'Доля полки'}]
-    
-     console.log( this.chartDatasets[0].data[0]);
+
+        else{
+          this.idBeer=this.response.beer;
+          this.col=this.response.beer.col;
+          
+         this.lenght=this.idBeer.length
+        this.chartLabels=[this.response.beer[0].id] ;
+        this.chartDatasets=[{data:[this.response.beer[0].col] , label: 'Доля полки'}]
       
-     
-      console.log(this.chartLabels);
-       for (let i = 0; i < this.lenght; i++) {
-        this.chartLabels[i]=this.response.beer[i].id; 
-        this.chartDatasets[0].data[i]=this.response.beer[i].col;
+       console.log( this.chartDatasets[0].data[0]);
+        
+       
+        console.log(this.chartLabels);
+         for (let i = 0; i < this.lenght; i++) {
+          this.chartLabels[i]=this.response.beer[i].id; 
+          this.chartDatasets[0].data[i]=this.response.beer[i].col;
+
+        }
+        
+      
       
       
 
