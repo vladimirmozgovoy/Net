@@ -12,7 +12,7 @@ import { RouterModule, Routes,Router } from '@angular/router';
 export class ReportsComponent implements OnInit {
   
 
-  
+  id:any
   img:any;
   url:any;
   elements:any;
@@ -20,8 +20,8 @@ export class ReportsComponent implements OnInit {
   token:any;
   headElements = ['ID', 'Дата','Магазин', 'Адрес магазина','Задача','Маршрут','Агент','Кол-во фотографий'];
   constructor(private http: HttpClient ,cookie: CookieService, private router:Router) { 
-    this.token=cookie.get("token");
-    
+    this.token=localStorage.getItem("token");
+    console.log(this.token);
     const params = {'token':this.token}
   
     this.url="http://net.axas.ru/api/getreports.php";
@@ -44,7 +44,12 @@ export class ReportsComponent implements OnInit {
 
 
   }
-
+  toReport(id_report){
+   
+this.id=id_report;
+console.log(this.token);
+this.router.navigate(['/reports/info/'+this.id]);
+  }
   ngOnInit() {
   }
 

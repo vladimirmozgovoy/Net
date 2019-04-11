@@ -22,12 +22,12 @@ htmlToAdd:any;
 style:any;
   constructor(private routes: ActivatedRoute,private router:Router, private http:HttpClient, private cookie: CookieService
     ) {
-      this.token=cookie.get("token");
+      this.token=localStorage.getItem("token");
       console.log(this.token);
       this.id = this.routes.snapshot.paramMap.get('id');
       this.url="http://net.axas.ru/api/getxml.php?id="+this.id+"&token="+this.token;
       
-    
+      
       
       //this.photoUrl="http://net.axas.ru/api/getphoto.php";
       this.photoUrl="http://net.axas.ru/api/getphoto.php?id="+this.id+"&token="+this.token;
@@ -46,7 +46,7 @@ style:any;
       console.log(this.resImg);
       if(this.resImg.code==300){
       console.log(this.token);
-        this.router.navigate(['/auth']);
+       this.router.navigate(['/auth']);
       
        }
        else{

@@ -14,7 +14,7 @@ export class ShopsComponent implements OnInit {
   response:any ;
   headElements = ['ID', 'ERP_ID','Регион', 'Маршруты','Тип','Комерческая сеть','Название магазина','Адрес','Отчет'];
   constructor(private http: HttpClient ,private cookie: CookieService,private router:Router) { 
-    this.token=cookie.get("token");
+    this.token=localStorage.getItem("token");
     const params = {'token':this.token};
     this.url="http://net.axas.ru/api/getshops.php";
   

@@ -1,12 +1,8 @@
 <app-nav></app-nav>
-<div class="container-fluid">
-  <h1 style="margin-left:40%;" class=" mt-4  ">Отчет №{{id}}</h1>
-<div class="row d-block col-12">
-
 <app-more-reports></app-more-reports>
-<h5>Доля полки</h5>
+<h4 style="margin-left:40%; margin-top:1%; ">Доля полки</h4>
 
-<div style="display: block">
+<div style="display: block ; margin-top:1%; ">
   <canvas mdbChart
       [chartType]="chartType"
       [datasets]="chartDatasets"

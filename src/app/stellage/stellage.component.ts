@@ -71,7 +71,7 @@ public chartType: string = 'pie';
   constructor(private routes: ActivatedRoute, private http:HttpClient,
     private cookie: CookieService ,private router:Router) {
       this.id = this.routes.snapshot.paramMap.get('id');
-      this.token=cookie.get("token");
+      this.token=localStorage.getItem("token");
       const params = {'id':this.id,'token':this.token};
       this.url="http://net.axas.ru/api/getinfo.php?id="+this.id+"&token="+this.token;
      

@@ -18,10 +18,10 @@ elements:any;
 headElements = ['Название продукта','Количество'];
   constructor(private routes: ActivatedRoute,private router:Router, private http:HttpClient
     ,private cookie: CookieService ) {
-      cookie.deleteAll();
-      this.token=cookie.get("token");
+     
+      this.token=localStorage.getItem("token");
       this.id = this.routes.snapshot.paramMap.get('id');
-    
+      
       
       this.url="http://net.axas.ru/api/getinfo.php?id="+this.id+"&token="+this.token;
 
@@ -32,7 +32,7 @@ headElements = ['Название продукта','Количество'];
        if(this.response.code==300){
          console.log(this.token);
        
-        this.router.navigate(['/auth']);
+       this.router.navigate(['/auth']);
     
   
        }

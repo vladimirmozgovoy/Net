@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr  *ngFor="let el of elements" (click)="more.toggle()">
+          <tr class="fon"  *ngFor="let el of elements" (click)="toReport(el.id_report)">
              
            <td><a class="active" href="/reports/info/{{el.id_report}}">{{el.id_report}}</a></td>
            <td>{{el.date}}</td>

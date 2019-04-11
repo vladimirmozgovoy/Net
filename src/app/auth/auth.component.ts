@@ -30,7 +30,7 @@ this.http.get(this.url,{ params: params }).subscribe((response)=>{
  this.response=response;
  this.code=this.response.code;
  if(this.code==200){
-  
+  localStorage.setItem('token', this.response.token);
   this.cookie.set( 'token', this.response.token );
   this.test=this.cookie.get("token");
   console.log(this.test);

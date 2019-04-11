@@ -14,7 +14,7 @@ export class AgentsComponent implements OnInit {
   response:any ;
   headElements = ['ID', 'ФИО','Дата', 'Маршруты'];
   constructor(private http: HttpClient,private cookie: CookieService,private router:Router) {
-    this.token=cookie.get("token");
+    this.token=localStorage.getItem('token');
     
     const params = {'token':this.token};
     this.url="http://net.axas.ru/api/getagents.php";
